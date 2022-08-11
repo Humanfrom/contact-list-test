@@ -4,7 +4,7 @@
 Используемый стек бэк: NodeJS + Express
 (изначально хотел сделать базу на PG, но это не часть тестового, поэтому все элементы БД определены переменными)
 
-
+## Версия ноды: Node.js v16.15.0.
 
 ## Запуск дэв сервера
 Команда запускаемая в папке сервера: `npm run dev` (дэв сервер на нодмон)
@@ -16,51 +16,53 @@
 
 ---
 
-Дерево фронта:
+Дерево проекта:
 
 ```
-.gitignore
-package-lock.json
-package.json
-src
-   |-- App.css
-   |-- App.tsx
-   |-- components
-   |   |-- Footer.tsx
-   |   |-- Header.tsx
-   |   |-- SearchLine.tsx
-   |-- hooks
-   |   |-- redux.ts
-   |-- index.html
-   |-- index.tsx
-   |-- models
-   |   |-- InterfaceItem.ts
-   |   |-- TableColumnItems.ts
-   |-- store
-   |   |-- reducers
-   |   |   |-- ActionCreators.ts
-   |   |   |-- ItemsSlice.ts
-   |   |-- store.ts
-   |-- utils
+client
+   |-- .gitignore
+   |-- package-lock.json
+   |-- package.json
+   |-- src
+   |   |-- AppRouter.tsx
+   |   |-- components
+   |   |   |-- Footer.tsx
+   |   |   |-- Header.tsx
+   |   |   |-- ModalCreateUser.tsx
+   |   |   |-- Navbar.tsx
+   |   |-- constants.tsx
+   |   |-- hooks
+   |   |   |-- redux.ts
+   |   |   |-- useToken.tsx
+   |   |-- index.html
    |   |-- index.tsx
-tsconfig.json
-webpack.config.js
-
-```
----
-
-Дерево бэка:
-```
-.gitignore
-controller
-   |-- table_controller.js
-db.js
-index.js
-package-lock.json
-package.json
-routes
-   |-- table_routes.js
-
+   |   |-- models
+   |   |   |-- InterfaceItem.ts
+   |   |-- pages
+   |   |   |-- About.tsx
+   |   |   |-- App.tsx
+   |   |   |-- Error.tsx
+   |   |   |-- Login.tsx
+   |   |   |-- css
+   |   |   |   |-- App.css
+   |   |-- routes
+   |   |   |-- index.tsx
+   |   |-- store
+   |   |   |-- reducers
+   |   |   |   |-- ItemsSlice.ts
+   |   |   |-- store.ts
+   |-- tsconfig.json
+   |-- webpack.config.js
+server
+   |-- .gitignore
+   |-- controller
+   |   |-- table_controller.js
+   |-- db.js
+   |-- index.js
+   |-- package-lock.json
+   |-- package.json
+   |-- routes
+   |   |-- table_routes.js
 
 ```
 ---
