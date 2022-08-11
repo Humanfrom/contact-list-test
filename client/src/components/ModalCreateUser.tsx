@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 import { useAppDispatch } from '../hooks/redux';
 import { resetState, postItem } from '../store/reducers/ItemsSlice'
-//import { User } from './Header'
 
 import { Text } from '@consta/uikit/Text';
 import { TextField } from '@consta/uikit/TextField';
 import { Modal } from '@consta/uikit/Modal';
 import { Button } from '@consta/uikit/Button';
 import { User } from '../models/InterfaceItem';
+import useToken from '../hooks/useToken';
 
 export interface ModalUser {
   visible: boolean,
@@ -16,6 +16,7 @@ export interface ModalUser {
 }
 
 const ModalCreateUser: FC<ModalUser> = ({visible, setVisible, initialState}) => {
+  const { token } = useToken();
 
   const dispatch = useAppDispatch();
   const [user, setUser] = useState<User | null>(initialState);
@@ -29,7 +30,7 @@ const ModalCreateUser: FC<ModalUser> = ({visible, setVisible, initialState}) => 
   }
 
   const onCreate = () => {
-      dispatch(postItem({...user}));
+      dispatch(postItem({ token: token, user: {...user}}));
       dispatch(resetState());
       setVisible(false);
   }

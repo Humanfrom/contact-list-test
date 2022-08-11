@@ -7,6 +7,7 @@ import { TextField } from '@consta/uikit/TextField';
 import { URL } from "../constants"
 import axios from 'axios';
 import useToken from '../hooks/useToken';
+import { useNavigate } from "react-router-dom";
 
 type Login = {
   setIsLogin: Function,
@@ -16,6 +17,7 @@ const Login: FC<Login> = ({setIsLogin}) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
   const { token, setToken } = useToken();
 
   const checkLoginData = async () => {
@@ -35,6 +37,7 @@ const Login: FC<Login> = ({setIsLogin}) => {
                   setToken({token: response.data});
                   setIsLogin(!!response.data);
                   window.location.reload();
+                  navigate('/');
               }
         })
   }

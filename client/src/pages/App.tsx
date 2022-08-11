@@ -16,8 +16,11 @@ import ModalCreateUser from '../components/ModalCreateUser';
 import { fetchItems, deleteItem } from '../store/reducers/ItemsSlice';
 import { User } from '../models/InterfaceItem'
 import './css/App.css'
+import useToken from '../hooks/useToken';
 
 const App: FC = () => {
+
+  const { token } = useToken();
   //хуки
   const {items, isLoading, error} = useAppSelector(state => state.itemsReduser) //данные из стора
   const [isModalOpen, setIsModalOpen] = useState(false) //стейт модального окна
@@ -25,8 +28,8 @@ const App: FC = () => {
 
   //обработчик кнопки удаления
   const deleteRow = (row:User) => {
-      dispatch(deleteItem(row.id))
-      fetchItems();
+      dispatch(deleteItem({id: row.id, token: token}))
+      fetchItems(token);
   }
 
   //настройка столбцов
@@ -69,7 +72,7 @@ const App: FC = () => {
   //загружаем товары в список
   useEffect(() => {
       if(!isModalOpen){
-          dispatch(fetchItems());
+          dispatch(fetchItems(token));
       }
   },[isModalOpen])
 

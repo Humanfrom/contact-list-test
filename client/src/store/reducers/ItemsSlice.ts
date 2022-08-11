@@ -14,14 +14,15 @@ const initialState: ItemState = {
 }
 
 //функция для загрузки элементов
-export const fetchItems = createAsyncThunk('items/fetchItems', async ( _ , { getState }: thunkAPI) => {
+export const fetchItems = createAsyncThunk('items/fetchItems', async ( token: string , { getState }: thunkAPI) => {
       const state: ItemState = getState().itemsReduser;
 
       const response = await axios.get(
         `${URL}table`,
         {
             headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                'Authorization': token
             },
             params: {
                 page: state.page,
@@ -32,16 +33,22 @@ export const fetchItems = createAsyncThunk('items/fetchItems', async ( _ , { get
     return response.data;
 })
 
+type PostArgs = {
+  token: string;
+  user: object;
+}
+
 //функция для отправки элемента
-export const postItem = createAsyncThunk('items/postItem', async ( item: object , { getState }: thunkAPI) => {
+export const postItem = createAsyncThunk('items/postItem', async ( item: PostArgs , { getState }: thunkAPI) => {
       const state = getState().itemsReduser;
 
       const response = await axios.post(
         `${URL}row`,
-        { ...item },
+        { ...item.user },
         {
             headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                'Authorization': item.token
             },
             params: {
                 page: state.page,
@@ -52,17 +59,23 @@ export const postItem = createAsyncThunk('items/postItem', async ( item: object 
     return response.data;
 })
 
+type DeleteArgs = {
+  token: string;
+  id: string;
+}
+
 //функция для удаления элемента
-export const deleteItem = createAsyncThunk('items/deleteItem', async ( id: string , { getState }: thunkAPI) => {
+export const deleteItem = createAsyncThunk('items/deleteItem', async ( item: DeleteArgs , { getState }: thunkAPI) => {
 
       const response = await axios.delete(
-        `${URL}row/${id}`,
+        `${URL}row/${item.id}`,
         {
             headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
+                'Authorization': item.token
             },
             params: {
-                id: id
+                id: item.id
         }
     });
 
