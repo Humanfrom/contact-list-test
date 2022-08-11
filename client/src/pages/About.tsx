@@ -12,7 +12,7 @@ const About: FC = () => {
         <div className="text-area">
             <Text as="p" size="s" view="primary">Выполнялось по вечерам в отрыве от основной работы. Использованы различные подходы в решени типовых задач. При уточнении ТЗ можно также добавить некоторый функционал.</Text>
             <Text as="p" size="s" view="primary">CSS строго для упрощения восприятия форм.</Text>
-            <Text as="p" size="s" view="primary">По всем вопросам в телеграм: https://t.me/humanfrom</Text>
+            <Text as="p" size="s" view="primary">По всем вопросам в телеграм: <a href="https://t.me/humanfrom">мой телеграм</a> </Text>
         </div>
         <Button
             size={"s"}
