@@ -20,7 +20,6 @@
 
 ```
 .gitignore
-README.md
 package-lock.json
 package.json
 src
