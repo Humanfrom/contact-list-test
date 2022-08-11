@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 80vh;
+  margin: 30px;
+}
+
+.login-container .card {
+  height: unset;
+  margin: auto;
+  justify-content: center;
+  min-width: unset;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card {
+  max-width: 1350px;
+  min-width: 600px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.search-line {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.body-content {
+  max-height: calc(95vh - 240px);
+}
+
+.footer {
+  border-top: 1px solid lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px
+}
+
+.footer-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: lightgrey;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-window {
+  padding: 25px;
+  max-width: 350px;
+  min-width: 300px;
+}
+
+.modal-window .Text {
+  margin: 0 5px;
+}
+
+.create-panel {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-panel > *,
+.login-panel .TextField,
+.login-panel .Button {
+  width: 100% !important;
+  margin: 15px 0;
+}
+
+.login-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-panel > * {
+  margin: 15px 0;
+}
+
+.phone-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.center-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-area {
+  padding: 0 30px;
+}
+
+.HeaderModule {
+  margin-left: 15px !important;
+}
